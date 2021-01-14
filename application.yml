@@ -1,0 +1,22 @@
+#环境配置,不同的参数配置不同的配置文件
+#运行时使用 java -jar xxx.jar --spring.profiles.active=dev,pro,test
+spring.profiles.active: dev
+
+#公共的log配置,一般每个环境共用
+logging.level.org: ERROR
+logging.level.sun: ERROR
+logging.level.io: ERROR
+logging.level.org.springframework.boot: INFO
+
+logging.file.max-history: 30
+logging.pattern: #日志输入规则
+  console: -[%d][%level][%X{REQ_ID}][%X{CLIENT_IP}][%X{SERVER_IP}][%class{35}\(%method:%L\)][%msg]%n
+  file: -[%d][%level][%X{REQ_ID}][%X{CLIENT_IP}][%X{SERVER_IP}][%class{35}\(%method:%L\)][%msg]%n
+logging.file.max-size: 200MB
+
+#协议参数加密key
+top.encrykey: nLmQdfwwsmm1S1Hd
+#协议参数验证key
+top.signkey: jQRb2j11Yd222GlU
+#协议文件存放包路径
+top.proPkg: com.top.api.pro
